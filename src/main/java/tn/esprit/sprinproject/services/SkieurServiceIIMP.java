@@ -1,6 +1,8 @@
 package tn.esprit.sprinproject.services;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import tn.esprit.sprinproject.entity.Piste;
 import tn.esprit.sprinproject.entity.Skieur;
@@ -14,6 +16,7 @@ import java.util.List;
 
 @AllArgsConstructor //création de constructeur
 @Service
+@Slf4j
 public class SkieurServiceIIMP implements ISkieurService{
 
     private SkieurRepository skieurRepository;
@@ -88,5 +91,16 @@ public class SkieurServiceIIMP implements ISkieurService{
     public List<Skieur> retriveSkieurByVille(String villeSk) {
         return skieurRepository.retriveSkieurByVille(villeSk);
     }
-
+//@Scheduled(fixedRate = 30000)
+//    public void fixedRateMethod(){
+//        log.info("Method with fixed rate");
+//    }
+//    @Scheduled(fixedDelay = 30000)
+//    public void fixedDelayMethod(){
+//        log.info("fixed Delay Method");
+//    }
+@Scheduled(cron ="0 41 19 31 10 *" )
+public void fixedCronMethod(){
+    log.info("Method with fixed cron");
+}
 }

@@ -21,4 +21,5 @@ public interface ISkieurService {
     public Skieur getSkieurByNomAndPrenom(String nomSk, String prenomSk);
     public List<Skieur> getSkieurByTypeAbonnement(TypeAbonnement typeAbonnement);
     public List<Skieur> retriveSkieurByVille(String villeSk);
+
 }
