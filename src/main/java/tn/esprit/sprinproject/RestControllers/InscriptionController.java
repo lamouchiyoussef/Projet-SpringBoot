@@ -3,6 +3,7 @@ package tn.esprit.sprinproject.RestControllers;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.sprinproject.entity.Inscription;
+import tn.esprit.sprinproject.entity.Support;
 import tn.esprit.sprinproject.services.IInscriptionService;
 
 import java.util.List;
@@ -45,5 +46,10 @@ public class InscriptionController {
     @PostMapping("/AddInscriptionAndAssingToCours/{idCours}")
     public Inscription AddInscriAndAsignToCours(@RequestBody Inscription inscription,@PathVariable long idCours) {
         return inscriptionService.AddInscriptionAndAssingToCours(inscription,idCours);
+    }
+
+    @GetMapping("/numsbmbs/{numMoniteur}/{support}")
+    public List<Integer> numSemaineofMoniteurBySupport(@PathVariable Long numMoniteur,@PathVariable Support support){
+        return inscriptionService.numSemaineofMoniteurBySupport(numMoniteur, support);
     }
 }

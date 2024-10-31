@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import tn.esprit.sprinproject.entity.Cours;
 import tn.esprit.sprinproject.entity.Inscription;
 import tn.esprit.sprinproject.entity.Skieur;
+import tn.esprit.sprinproject.entity.Support;
 import tn.esprit.sprinproject.repositories.CoursRepository;
 import tn.esprit.sprinproject.repositories.InscriptionRepository;
 import tn.esprit.sprinproject.repositories.SkieurRepository;
@@ -59,4 +60,10 @@ public class InscriptionServiceIMP implements  IInscriptionService{
         inscription.setCours(cours);
         return  inscriptionRepository.save(inscription);
     }
+
+    @Override
+    public List<Integer> numSemaineofMoniteurBySupport(Long numMoniteur, Support support) {
+        return inscriptionRepository.numWeeksCourseOfInstructorBySupport(numMoniteur, support);
+    }
+
 }
